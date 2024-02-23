@@ -7,21 +7,20 @@ const sampleListing = new Schema({
         required: true
     },
     description:String,
-    image:{filename:{
+    image:
+    {
         type:String,
-    },
-    url:{
-        type:String,
-         default: "https://unsplash.com/photos/photography-of-night-sky-L8126OwlroY" ,
+         default: "https://unsplash.com/photos/white-yacht-in-middle-of-blue-sea-qToVxSYXPYU" ,
         set: (v) =>
          v === ""
-          ? "https://unsplash.com/photos/photography-of-night-sky-L8126OwlroY" 
+          ? "https://unsplash.com/photos/white-yacht-in-middle-of-blue-sea-qToVxSYXPYU" 
           : v,
     },
+
     price:Number,
     location : String,
     country: String
-}});
+});
 
 const Listing = mongoose.model("Listing", sampleListing);
 
