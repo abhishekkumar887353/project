@@ -11,7 +11,7 @@
         <div class="col-8 offset-2">
 
     <h2>Create a New Listing</h2>
-    <form method="POST" action="/listings"  class="needs-validation" autocomplete="off" novalidate >
+    <form method="POST" action="/listings"  class="needs-validation" autocomplete="off" novalidate class ="needs-validation" enctype = "multipart/form-data" >
         <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
@@ -26,10 +26,17 @@
     </div>
     
 
-    <div class="mb-3">
+    <!-- <div class="mb-3">
      <label for="image" class="form-label">Image Link</label>
     <input name="listing[image]" placeholder="enter image" type="text" class="form-control">
-    </div>
+    </div> -->
+
+    
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+       <input name="listing[image]"  type="file" class="form-control">
+       required
+       </div>
 
    
 

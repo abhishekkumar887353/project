@@ -12,12 +12,15 @@ const sampleListing = new Schema({
     description:String,
     image:
     {
-        type:String,
-         default: "https://images.unsplash.com/photo-1565413294262-fa587c396965?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,
-        set: (v) =>
-         v === ""
-          ? "https://images.unsplash.com/photo-1565413294262-fa587c396965?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-          : v,
+
+        url: String,
+        filename: String,
+        // type:String,
+        //  default: "https://images.unsplash.com/photo-1565413294262-fa587c396965?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,
+        // set: (v) =>
+        //  v === ""
+        //   ? "https://images.unsplash.com/photo-1565413294262-fa587c396965?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+        //   : v,
     },
 
     price:Number,
@@ -36,6 +39,18 @@ const sampleListing = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+
+    geometry: {
+        type: {
+            type: String, // Don't do `{ location: { type: String } }`
+            enum: ['Point'], // 'location.type' must be 'Point'
+            required: true
+          },
+          coordinates: {
+            type: [Number],
+            required: true
+          },
+    }
 
 });
 
