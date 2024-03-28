@@ -26,6 +26,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+ const dbUrl = process.env.ATLASDB_URL; 
 
 
 main()
@@ -35,7 +36,7 @@ main()
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/majorP');
+  await mongoose.connect(dbUrl);
 
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
@@ -61,9 +62,7 @@ const sessionOptions = {
 
 
 
-app.get("/", (req,res)=>{
-    res.send("Hi I m root");
-});
+
 
 
 
